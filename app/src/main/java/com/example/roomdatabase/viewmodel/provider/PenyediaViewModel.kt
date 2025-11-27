@@ -8,9 +8,8 @@ import com.example.roomdatabase.repositori.AplikasiSiswa
 import com.example.roomdatabase.viewmodel.EntryViewModel
 import com.example.roomdatabase.viewmodel.HomeViewModel
 
-
-object PengelolaHalaman {
-    val factory = viewModelFactory {
+object PenyediaViewModel{
+    val Factory = viewModelFactory{
         initializer {
             HomeViewModel(aplikasiSiswa().container.repositoriSiswa)
         }

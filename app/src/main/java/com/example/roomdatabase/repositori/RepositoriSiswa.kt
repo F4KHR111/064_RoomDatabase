@@ -1,2 +1,19 @@
 package com.example.roomdatabase.repositori
 
+import com.example.roomdatabase.room.SiswaDao
+import com.example.roomdatabase.viewmodel.Siswa
+import kotlinx.coroutines.flow.Flow
+
+interface RepositoriSiswa {
+    suspend fun insertSiswa(siswa: Siswa)
+    fun getAllSiswaStream(): Flow<List<Siswa>>
+}
+
+class OfflineRepositoriSiswa(
+    private val siswaDao: SiswaDao
+): RepositoriSiswa {
+    override fun getAllSiswaStream(): Flow<List<Siswa>> = siswaDao
+        .getAllSiswa()
+    override suspend fun insertSiswa(siswa: Siswa) = siswaDao
+        .insert(siswa)
+}

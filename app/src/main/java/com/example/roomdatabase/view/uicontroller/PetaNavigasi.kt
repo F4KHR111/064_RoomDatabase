@@ -7,6 +7,7 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.roomdatabase.view.EntrySiswaScreen
 import com.example.roomdatabase.view.HomeScreen
 import com.example.roomdatabase.view.route.DestinasiEntry
 import com.example.roomdatabase.view.route.DestinasiHome
@@ -29,6 +30,8 @@ fun HostNavigasi(
                 navigateToItemEntry = { navController.navigate(DestinasiEntry.route) },
             )
         }
-        
+        composable(DestinasiEntry.route){
+            EntrySiswaScreen(navigateBack = { navController.popBackStack()})
+        }
     }
 }
